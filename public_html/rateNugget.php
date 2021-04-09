@@ -6,7 +6,6 @@ $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_STRING);
 if (filter_input(INPUT_POST, "rating", FILTER_VALIDATE_INT, ["options" => ["min_range" => 0, "max_range" => 5]])) {
     $rating = $_POST['rating'];
 } else {
-    echo json_encode($_POST['id']);
     http_response_code(403);
     die('Forbidden');
 }

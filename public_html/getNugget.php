@@ -44,7 +44,7 @@ $results = $collection->aggregate([
 
     
 ])->toArray();
-//'$divide' => ['$rateValue', '$rateSubmissions']
+
 //Randomize order
 shuffle($results);
 
