@@ -1,5 +1,6 @@
 <?php
 require '../vendor/autoload.php';
+// assert_options(ASSERT_CALLBACK, 'assertHandler');
 
 if (!empty($_COOKIE['rated'])) {
     $ratedIDs = json_decode(base64_decode($_COOKIE['rated']), TRUE);
@@ -7,6 +8,7 @@ if (!empty($_COOKIE['rated'])) {
     $ratedIDs = [];
 }
 
+$ratedObjectIDs = array_map(function($alreadyRatedID) {return new MongoDB\BSON\ObjectId($alreadyRatedID); }, $ratedIDs);
 
 $client = new MongoDB\Client(getenv('MONGO'));
 
@@ -16,7 +18,7 @@ $results = $collection->aggregate([
     [
         '$match' => [
             '_id' => [
-                '$nin' => array_map(function($alreadyRatedID) {return new MongoDB\BSON\ObjectID($alreadyRatedID); }, $ratedIDs)
+                '$nin' => $ratedObjectIDs
             ]
         ],
     ],
@@ -45,6 +47,14 @@ $results = $collection->aggregate([
     
 ])->toArray();
 
+$returnedIDs = array_map(function($entry) {
+    return (string)$entry['_id'];
+}, $results);
+
+$previouslySeenImages = array_diff($returnedIDs, $ratedIDs);
+// assert(sizeof($previouslySeenImages) === 10);
+
+
 //Randomize order
 shuffle($results);
 
@@ -61,6 +71,14 @@ foreach ($results as $result) {
 
 
 header('Content-type:application/json');
-echo json_encode($returnData)
+echo json_encode($returnData);
 
+
+// function assertHandler($file, $line, $code) {
+//     echo "<hr>Assertion Failed:
+//         File '$file'<br />
+//         Duplicate Items '$line'<br />
+//         Code '$code'<br /><hr />
+//         Value of cookie was: " . ($_COOKIE['rated'] ?? 'Missing') . "<br />";
+// }
 ?>

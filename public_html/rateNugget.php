@@ -35,7 +35,7 @@ require '../vendor/autoload.php';
 $client = new MongoDB\Client(getenv('MONGO'));
 $collection = $client->nuggets->nuggets;
 $nugget = $collection->findOneAndUpdate(
-    ["_id" => new MongoDB\BSON\ObjectID($id)],
+    ["_id" => new MongoDB\BSON\ObjectId($id)],
     [
         '$inc' => [
             'rateValue' => intval($rating),
