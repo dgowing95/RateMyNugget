@@ -20,7 +20,17 @@
     <meta name="twitter:description" content="We show you pictures of chicken nuggets (mostly), you rate them out of 5. You'll probably get a little hungry too. ">
     <meta name="twitter:image" content="/images/social.png">
     <meta name="twitter:card" content="/images/social.png">
-    
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0JJZ73G6R5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0JJZ73G6R5');
+    </script>
+
     <style>
         ul {
             list-style: none;
