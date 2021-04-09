@@ -50,6 +50,9 @@ function resetRating() {
 
 let nuggetImageElem = document.querySelector('.nugget-image');
 let nugRatingElem = document.querySelector('.nug-rating');
+let curRating = document.querySelector('.nug-current-rating');
+let totalRates = document.querySelector('.nug-total-rates');
+
 
 let nuggets = [];
 let nuggetID = 0;
@@ -76,6 +79,8 @@ function renderNugget() {
 
     nuggetImageElem.src = nuggetToUse.url
     nuggetID = nuggetToUse.id;
+    curRating.innerText = Math.round(nuggetToUse.rating * 10) / 10;
+    totalRates.innerText = nuggetToUse.numRates
 }
 
 function rateNugget(rating) {

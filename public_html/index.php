@@ -44,6 +44,9 @@
                     <div class='nug nug-empty' alt="" srcset=""></div>
                     <div class='nug nug-empty' alt="" srcset=""></div>
                 </div>
+                <p class='mt-2'>
+                    This nugget is currently rated at <span class='nug-current-rating'></span> nuggets by <span class='nug-total-rates'></span> people
+                </p>
             </div>
         </div>
         <div class='row mt-5 nug-warning d-none'>
