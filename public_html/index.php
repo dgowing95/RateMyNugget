@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rate My Nugget</title>
+    <title>Rate My Nugget - The Best Place to Rate Chicken Nuggets</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+    <link rel="icon" type="image/png" href="/images/favicon.png"/>
 
+    <meta name="title" content="Rate My Nugget - The Best Place to Rate Chicken Nuggets">
+    <meta name="description" content="We show you pictures of chicken nuggets (mostly), you rate them out of 5. You'll probably get a little hungry too.">
+
+    <meta property="og:title" content="Rate My Nugget - The Best Place to Rate Chicken Nuggets">
+    <meta property="og:description" content="We show you pictures of chicken nuggets (mostly), you rate them out of 5. You'll probably get a little hungry too.">
+    <meta property="og:image" content="/images/social.png">
+    <meta property="og:url" content="https://www.ratemynugget.com">
+
+    <meta name="twitter:title" content="Rate My Nugget - The Best Place to Rate Chicken Nuggets">
+    <meta name="twitter:description" content="We show you pictures of chicken nuggets (mostly), you rate them out of 5. You'll probably get a little hungry too. ">
+    <meta name="twitter:image" content="/images/social.png">
+    <meta name="twitter:card" content="/images/social.png">
+    
     <style>
         ul {
             list-style: none;
@@ -29,7 +44,7 @@
 <body>
     <div class="container pt-3">
         <h1 class='text-center'>
-            Rate My Nugget
+            RateMyNugget.com
         </h1>
         <div class="row mt-5 nugget-stage">
             <div class="col-12 text-center">
