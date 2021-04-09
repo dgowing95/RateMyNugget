@@ -20,6 +20,8 @@ if (!empty($_COOKIE['rated'])) {
 }
 
 $ratedIDs[] = $id;
+$ratedIDs = array_unique($ratedIDs);
+
 setcookie(
     'rated',
     base64_encode(json_encode($ratedIDs)),
