@@ -74,6 +74,7 @@ function renderNugget() {
     resetRating()
     if (nuggets.length === 0 ) {
         getNuggets()
+        return;
     }
     let nuggetToUse = nuggets.shift()
 
@@ -84,17 +85,13 @@ function renderNugget() {
 }
 
 function rateNugget(rating) {
-    let data = new FormData();
-    data.append("id", nuggetID);
-    data.append("rating", rating);
-
-    fetch('/rateNugget.php', {
-        method: 'POST',
-        body: data
-    })
+    fetch(`/rateNugget.php?id=${nuggetID}&rating=${rating}`)
     .then (res => res.json())
     .then(data => {
         renderNugget()
+    })
+    .catch(err => {
+        console.log(err)
     })
 }
 

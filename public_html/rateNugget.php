@@ -1,10 +1,10 @@
 <?php
 
-$id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_STRING);
+$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_STRING);
 
 //Only allow ratings that are ints 0-5 inclusive
-if (filter_input(INPUT_POST, "rating", FILTER_VALIDATE_INT, ["options" => ["min_range" => 0, "max_range" => 5]])) {
-    $rating = $_POST['rating'];
+if (filter_input(INPUT_GET, "rating", FILTER_VALIDATE_INT, ["options" => ["min_range" => 0, "max_range" => 5]])) {
+    $rating = $_GET['rating'];
 } else {
     http_response_code(403);
     die('Forbidden');
