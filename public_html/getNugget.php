@@ -23,7 +23,15 @@ $results = $collection->aggregate([
     [
         '$addFields' => [
             'rating' => [
-                '$divide' => ['$rateValue', '$rateSubmissions']
+                '$cond'=> [ 
+                    [ 
+                        '$eq'=> [ '$rateSubmissions', 0 ] 
+                    ],
+                    0,
+                    [
+                        '$divide' => ['$rateValue', '$rateSubmissions']
+                    ]
+                ]
             ]
         ]
     ],
@@ -36,7 +44,7 @@ $results = $collection->aggregate([
 
     
 ])->toArray();
-
+//'$divide' => ['$rateValue', '$rateSubmissions']
 //Randomize order
 shuffle($results);
 
