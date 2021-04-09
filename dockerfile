@@ -1,7 +1,7 @@
 FROM php:8-fpm
 
 RUN apt update -y \
-    && apt-get install -y nginx
+    && apt-get install -y nginx zip unzip
 
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS -std=c++11"
 
@@ -10,7 +10,8 @@ RUN docker-php-ext-install pdo_mysql \
     && apt-get install libicu-dev -y \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
-    && apt-get remove libicu-dev icu-devtools -y
+    && apt-get remove libicu-dev icu-devtools -y \
+    && apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev
 
 RUN pecl install mongodb \
     &&  echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongo.ini
@@ -31,6 +32,7 @@ COPY --chown=www-data:www-data . /var/www/ratemynugget
 
 WORKDIR /var/www/ratemynugget
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN composer require mongodb/mongodb
 RUN composer install
 
 EXPOSE 80

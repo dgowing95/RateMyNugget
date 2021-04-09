@@ -8,4 +8,14 @@ services:
             - 8080:80
         volumes:
             - ./public_html:/var/www/ratemynugget/public_html
-
+    mongo:
+        image: mongo:4.4.5
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root 
+            MONGO_INITDB_ROOT_PASSWORD: password
+        ports:
+            - 27017:27017
+        volumes:
+            - mongodb_data_container:/data/db
+volumes:
+    mongodb_data_container:
