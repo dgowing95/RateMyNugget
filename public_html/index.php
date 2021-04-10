@@ -49,6 +49,9 @@
         .nug-border {
             background-image: url('/images/nug-border.png');
         }
+        .not-nug-button {
+            max-width: 250px;
+        }
     </style>
 </head>
 <body>
@@ -58,22 +61,24 @@
         </h1>
         <div class="row mt-5 nugget-stage">
             <div class="col-12 text-center">
-                <img class='nugget-image' src="" alt="">
+                <img class='nugget-image mw-100 shadow rounded' src="" alt="">
             </div>
-            <div class="col-12 text-center mt-2">
-                <h3>What do you think of this nugget? </h3>
-                <div class='nug-rating d-flex justify-content-center'>
-                    <div class='nug nug-empty' alt="" srcset=""></div>
-                    <div class='nug nug-empty' alt="" srcset=""></div>
-                    <div class='nug nug-empty' alt="" srcset=""></div>
-                    <div class='nug nug-empty' alt="" srcset=""></div>
-                    <div class='nug nug-empty' alt="" srcset=""></div>
+            <div class="col-12 col-md-7 text-center mt-3 mx-auto">
+                <div class='card mx-auto p-1 p-md-3'>
+                    <h3>What do you think of this nugget? </h3>
+                    <div class='nug-rating d-flex justify-content-center'>
+                        <div class='nug nug-empty' alt="" srcset=""></div>
+                        <div class='nug nug-empty' alt="" srcset=""></div>
+                        <div class='nug nug-empty' alt="" srcset=""></div>
+                        <div class='nug nug-empty' alt="" srcset=""></div>
+                        <div class='nug nug-empty' alt="" srcset=""></div>
+                    </div>
+                    <div> or </div>
+                    <div class='btn btn-danger not-nug-button d-inline-block mx-auto'>This isn't a nugget </div>
+                    <p class='mt-2'>
+                        This nugget is currently rated at <span class='nug-current-rating'></span> nuggets by <span class='nug-total-rates'></span> people
+                    </p>
                 </div>
-                <div> or </div>
-                <div class='btn btn-danger not-nug-button'>This isn't a nugget </div>
-                <p class='mt-2'>
-                    This nugget is currently rated at <span class='nug-current-rating'></span> nuggets by <span class='nug-total-rates'></span> people
-                </p>
             </div>
         </div>
         <div class='row mt-5 nug-warning d-none'>
