@@ -64,7 +64,7 @@
                 <img class='nugget-image mw-100 shadow rounded' src="" alt="">
             </div>
             <div class="col-12 col-md-7 text-center mt-3 mx-auto">
-                <div class='card mx-auto p-1 p-md-3'>
+                <div class='card round mx-auto p-1 p-md-3'>
                     <h3>What do you think of this nugget? </h3>
                     <div class='nug-rating d-flex justify-content-center'>
                         <div class='nug nug-empty' alt="" srcset=""></div>
@@ -73,10 +73,10 @@
                         <div class='nug nug-empty' alt="" srcset=""></div>
                         <div class='nug nug-empty' alt="" srcset=""></div>
                     </div>
-                    <div> or </div>
+                    <div class='mb-2'> or </div>
                     <div class='btn btn-danger not-nug-button d-inline-block mx-auto'>This isn't a nugget </div>
-                    <p class='mt-2'>
-                        This nugget is currently rated at <span class='nug-current-rating'></span> nuggets by <span class='nug-total-rates'></span> people
+                    <p class='mt-4'>
+                        This nugget is currently rated at <span class='nug-current-rating fw-bold'></span> nuggets by <span class='nug-total-rates fw-bold'></span> people
                     </p>
                 </div>
             </div>
