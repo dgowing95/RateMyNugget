@@ -69,6 +69,8 @@
                     <div class='nug nug-empty' alt="" srcset=""></div>
                     <div class='nug nug-empty' alt="" srcset=""></div>
                 </div>
+                <div> or </div>
+                <div class='btn btn-danger not-nug-button'>This isn't a nugget </div>
                 <p class='mt-2'>
                     This nugget is currently rated at <span class='nug-current-rating'></span> nuggets by <span class='nug-total-rates'></span> people
                 </p>
@@ -82,6 +84,6 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script src="/nugget.js"></script>
+    <script src="/nugget.js?v=1"></script>
 </body>
 </html>

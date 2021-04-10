@@ -5,6 +5,8 @@ document.querySelectorAll('.nug').forEach((nuggetRating) => {
     nuggetRating.addEventListener('click', (event) => {nuggetClick(event)})
 })
 
+document.querySelector('.not-nug-button').addEventListener('click', () => {rateNugget(0)})
+
 function nuggetMouseOver(event) {
     event.target.classList.add('nug-filled')
     let previousSibling = event.target.previousElementSibling;
