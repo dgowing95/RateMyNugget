@@ -63,7 +63,7 @@
             <div class="col-12 text-center">
                 <img class='nugget-image mw-100 shadow rounded' src="" alt="">
             </div>
-            <div class="col-12 col-md-7 text-center mt-3 mx-auto">
+            <div class="col-12 col-md-7 text-center mt-3 mx-auto mb-3">
                 <div class='card round mx-auto p-2 p-md-3'>
                     <h3>What do you think of this nugget? </h3>
                     <div class='nug-rating d-flex justify-content-center mt-4'>
