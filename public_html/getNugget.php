@@ -16,13 +16,8 @@ $collection = $client->nuggets->nuggets;
 
 $results = $collection->aggregate([
     [
-        '$match' => [
-            '_id' => [
-                '$nin' => $ratedObjectIDs
-            ]
-        ],
-    ],
-    [
+        //Calculate and return the average rating
+        //RatingTotal / Number of submissions
         '$addFields' => [
             'rating' => [
                 '$cond'=> [ 
@@ -38,8 +33,28 @@ $results = $collection->aggregate([
         ]
     ],
     [
+        //Only return items which they havent seen
+        //Only show ratings less than 1 if they've been seen by fewer than 10 people
+        '$match' => [
+            '$and' => [
+                [
+                    '_id' => [
+                        '$nin' => $ratedObjectIDs
+                    ],
+                ],
+                [
+                    '$or' => [
+                        [ 'rating' => [ '$gte' => 1 ] ] ,
+                        [ 'rateSubmissions' => [ '$lte' => 10 ] ] 
+                    ]
+                ]
+
+            ]
+        ],
+    ],
+    [
         '$sample' => [
-            'size' => 10
+            'size' => 20
         ]
     ]
     
