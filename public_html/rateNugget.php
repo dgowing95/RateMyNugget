@@ -17,7 +17,7 @@ if (
 
 //Store rated as a cookie so user doesnt get shown same image more than once
 if (!empty($_COOKIE['rated'])) {
-    $ratedIDs = json_decode(base64_decode($_COOKIE['rated']), TRUE);
+    $ratedIDs = json_decode(base64_decode($_COOKIE['rated']), true);
 } else {
     $ratedIDs = [];
 }
@@ -28,7 +28,7 @@ $ratedIDs = array_unique($ratedIDs);
 setcookie(
     'rated',
     base64_encode(json_encode($ratedIDs)),
-    time()+60*60*24*30 
+    time()+60*60*24*30
 );
 
 
@@ -51,6 +51,4 @@ $nugget = $collection->findOneAndUpdate(
 header('Content-type:application/json');
 echo json_encode([
     'status' => 'ok'
-])
-
-?>
+]);
