@@ -25,11 +25,9 @@ jobs:
       
       - name: Build, tag and push image to Amazon ECR
         uses: docker/build-push-action@v2
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         with:
           push: true
-          tags: $ECR_REGISTRY/ratemynugget:${{ github.sha }}
+          tags: ${{ steps.login-ecr.outputs.registry }}/ratemynugget:${{ github.sha }}
 
       - name: Update manifest with dynamic values
         run: |
