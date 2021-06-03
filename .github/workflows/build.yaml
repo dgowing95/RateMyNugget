@@ -29,6 +29,8 @@ jobs:
           push: true
           tags: ${{ steps.login-ecr.outputs.registry }}/ratemynugget:${{ github.sha }}
 
+      - uses: actions/checkout@v2
+      
       - name: Update manifest with dynamic values
         run: |
           sed -i  's/tag/${{ github.sha }}/g' ./kube/schema.yaml
