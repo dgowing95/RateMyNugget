@@ -3,7 +3,7 @@ kind: Secret
 metadata:
   name: ratemynugget-secrets
 type: Opaque
-string:
+data:
   MONGO: mongosecret
 ---
 apiVersion: v1
