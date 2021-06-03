@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ratemynugget-secrets
+type: Opaque
+stringData:
+  MONGO: mongosecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ratemynugget-service
+spec:
+  selector:
+    app: ratemynugget
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratemynugget
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratemynugget
+  template:
+    metadata:
+      labels:
+        app: ratemynugget
+    spec:
+      imagePullSecrets:
+        - name: ecr-docker-login
+      containers:
+      - name: ratemynugget
+        image: 688621974378.dkr.ecr.eu-west-2.amazonaws.com/ratemynugget:tag
+        env:
+          - name: MONGO
+            valueFrom:
+              secretKeyRef:
+                name: ratemynugget-secrets
+                key: MONGO
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 80

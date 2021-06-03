@@ -30,3 +30,15 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/ratemynugget:$IMAGE_TAG .
           docker push $ECR_REGISTRY/ratemynugget:$IMAGE_TAG
+
+      - name: Update manifest with dynamic values
+        run: |
+          sed -i  's/tag/${{ github.sha }}/g' ./kube/schema.yaml
+          sed -i  's/mongosecret/${{ secrets.MONGO }}/g' ./kube/schema.yaml
+          cat ./kube/schema.yaml
+          
+      - name: Setup Kubectl & deploy
+        run: |
+          echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > /tmp/config
+          export KUBECONFIG=/tmp/config
+          kubectl apply -f ./kube/schema.yaml
