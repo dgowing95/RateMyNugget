@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-service nginx start
+service nginx start && echo "starting"
 php-fpm

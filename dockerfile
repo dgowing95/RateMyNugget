@@ -35,6 +35,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 RUN composer require mongodb/mongodb
 RUN composer install
 
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT ["sh", "/etc/entrypoint.sh"]

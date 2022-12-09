@@ -1,6 +1,6 @@
 <?php
 
-$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_STRING);
+$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_ENCODED );
 
 //Only allow ratings that are ints 0-5 inclusive
 if (
